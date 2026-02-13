@@ -50,6 +50,10 @@ cd GitHub-Analyzer
 Open index.html in your browser
 
 
+# Direct open project link: 
+To view project directly 
+https://codemanav16.github.io/Github_Analyzer/
+
 
 
 👨‍💻 Author
