@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CommitIQ — GitHub Portfolio Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+
+<body data-theme="light">
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+
+        <!-- CommitIQ Logo -->
+        <div class="brand-logo">
+          <svg width="180" height="40" viewBox="0 0 180 40" fill="none" overflow="visible"
+               xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="20" r="12" stroke="#60A5FA" stroke-width="3"/>
+            <circle cx="18" cy="20" r="4" fill="#60A5FA"/>
+            <text x="40" y="26"
+                  font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+                  font-size="20"
+                  font-weight="600"
+                  fill="currentColor">
+              Analyze<tspan fill="#60A5FA">GitHub</tspan>
+            </text>
+          </svg>
+        </div>
+
+      </div>
+
+      <button id="themeToggle" class="icon-btn" title="Toggle theme">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main class="container">
+
+    <!-- SEARCH + ACTIONS -->
+    <section class="card search-card">
+      <input
+        id="usernameInput"
+        class="input"
+        type="text"
+        placeholder="Enter GitHub username"
+        autocomplete="off"
+      />
+
+      <button id="analyzeBtn" class="btn-primary">
+        Analyze Profile
+      </button>
+
+      <button id="deepAnalyzeBtn" class="btn-secondary">
+        Analyze Portfolio
+      </button>
+
+      <p id="statusText" class="status-text"></p>
+    </section>
+
+    <!-- ================= CONTENT ================= -->
+    <section id="content" class="content hidden">
+
+      <!-- PROFILE CARD -->
+      <a id="profileLink" target="_blank" class="card profile-card">
+        <div class="profile-left">
+          <img id="avatar" class="avatar" alt="Avatar" />
+          <div>
+            <h2 id="name">Username</h2>
+            <p id="bio">Bio</p>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div>
+            <span id="repoCount">0</span>
+            <small>Repos</small>
+          </div>
+          <div>
+            <span id="followers">0</span>
+            <small>Followers</small>
+          </div>
+        </div>
+      </a>
+
+      <!-- REPOSITORIES -->
+      <section class="card">
+        <div class="card-header">
+          <h3>Repositories</h3>
+        </div>
+        <div id="repoList" class="repo-list">
+          <!-- injected via JS -->
+        </div>
+      </section>
+
+      <!-- ANALYTICS -->
+      <section class="analytics-grid">
+
+        <div class="card">
+          <h3>Commit Activity</h3>
+          <canvas id="commitChart"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>Language Usage</h3>
+          <canvas id="languageChart"></canvas>
+        </div>
+
+      </section>
+
+      <!-- ================= PORTFOLIO REPORT ================= -->
+      <section id="portfolioReport" class="card hidden">
+        <h3>Portfolio Analysis Report</h3>
+
+        <div class="report-score">
+          <span id="portfolioScore">–</span>/10
+        </div>
+
+        <div class="report-section">
+          <h4>Strengths</h4>
+          <ul id="strengthsList"></ul>
+        </div>
+
+        <div class="report-section">
+          <h4>Weaknesses</h4>
+          <ul id="weaknessesList"></ul>
+        </div>
+
+        <div class="report-section">
+          <h4>Tech Stack Overview</h4>
+          <p id="techSummary"></p>
+        </div>
+
+        <div class="report-section">
+          <h4>Ideas to Improve</h4>
+          <ul id="improvementsList"></ul>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <p>
+      © <span id="year"></span> <strong>AnalyzeGitHub</strong> ·
+      Built by <strong>Manav Anal</strong>
+    </p>
+  </footer>
+
+  <!-- Year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Script -->
+  <script src="./script.js"></script>
+</body>
+</html>
